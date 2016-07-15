@@ -1,0 +1,7 @@
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\bin\Debug\AddressParser.exe.config
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\bin\Debug\AddressParser.exe
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\bin\Debug\AddressParser.pdb
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\obj\Debug\AddressParser.csprojResolveAssemblyReference.cache
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\obj\Debug\AddressParser.exe
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\obj\Debug\AddressParser.pdb
+C:\Users\jaridwade\Documents\GitHub\AddressParser\AddressParser\obj\Debug\AddressParser.csproj.ResolveComReference.cache
