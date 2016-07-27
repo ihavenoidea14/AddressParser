@@ -75,20 +75,18 @@ namespace AddressParser
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("House Number: {0}\r\nStreet Prefix: {1}\r\nStreet Name: {2}\r\nStreet Type: {3}\r\nStreet Suffix: {4}\r\nApt. Number: {5}", housenum, pre, stname, streettype, suffix, aptnum);
-            //Console.ReadLine();
             Excel.Application excel = new Excel.Application();
-            Excel.Workbook wb = excel.Workbooks.Open("C:\\users\\jaridwade\\Desktop\\Book1.xlsm");
+            Excel.Workbook wb = excel.Workbooks.Open("C:\\users\\jaridwade\\Desktop\\Book1.xlsx");
             excel.Visible = true;
             Excel.Worksheet ws = wb.ActiveSheet;
             int lastrow = ws.Range["A" + ws.Rows.Count].End[Excel.XlDirection.xlUp].Row;
             for(int i = 2; i <= lastrow; i++)
             {
                 StreetAddress addy = new StreetAddress();
-                string input = ws.Cells[i, 1].Value.ToString();
+                string input = ws.Cells[i, 2].Value.ToString();
                 input = input.Replace(".", "");
                 input = input.Replace(",", "");
-                input = input.Replace("#", "");
+                // input = input.Replace("#", "");
                 addy = Parse(input);
                 string housenum = addy.HouseNumber;
                 string pre = addy.StreetPrefix;
@@ -98,21 +96,14 @@ namespace AddressParser
                 string aptnum = addy.Apt;
                 string[] parts = { housenum, pre, stname, streettype, suffix, aptnum };
 
-                for(var n = 0; n < parts.Length; n++)
-                {
-                    if (parts[n] == null)
-                    {
-                        parts[n] = " ";
-                    }
-                }
                 try
                 {
-                    ws.Cells[i, 4] = parts[0];
-                    ws.Cells[i, 3] = parts[1];
-                    ws.Cells[i, 2] = parts[2];
-                    ws.Cells[i, 2] = (ws.Cells[i, 2].Value + " " + parts[3]).ToString().Trim();
-                    ws.Cells[i, 3] = (ws.Cells[i, 3].Value + " " + parts[4]).ToString().Trim();
-                    ws.Cells[i, 2] = (ws.Cells[i, 2].Value + " " + parts[5]).ToString().Trim();
+                    ws.Cells[i, 5] = parts[0];
+                    ws.Cells[i, 4] = parts[1];
+                    ws.Cells[i, 3] = parts[2];
+                    ws.Cells[i, 3] = (ws.Cells[i, 3].Value + " " + parts[3]).ToString().Trim();
+                    ws.Cells[i, 4] = (ws.Cells[i, 4].Value + " " + parts[4]).ToString().Trim();
+                    ws.Cells[i, 3] = (ws.Cells[i, 3].Value + " " + parts[5]).ToString().Trim();
                 }
                 catch (Exception e)
                 {
